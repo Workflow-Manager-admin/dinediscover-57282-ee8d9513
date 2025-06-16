@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
+import { fetchRestaurants } from "../api";
 
 /**
  * MainContainer component for DineDiscover.
@@ -46,21 +47,55 @@ export default function MainContainer() {
   const [price, setPrice] = useState("");
   const [distance, setDistance] = useState("");
   const [pending, setPending] = useState(false);
-  const [suggestion, setSuggestion] = useState("");
+  const [restaurants, setRestaurants] = useState([]);
+  const [error, setError] = useState(null);
+  const [suggestionIndex, setSuggestionIndex] = useState(null);
 
   // PUBLIC_INTERFACE
   const handleSuggest = async (e) => {
     e.preventDefault();
     setPending(true);
-    setSuggestion("");
-    setTimeout(() => {
-      // Dummy suggestion for mockup.
-      setSuggestion(
-        `Try a${cuisine ? ` ${cuisine}` : ""}${rating || price || distance ? ", filters applied!" : ""} restaurant near ${location || "you"}!`
-      );
+    setError(null);
+    setRestaurants([]);
+    setSuggestionIndex(null);
+
+    try {
+      const resp = await fetchRestaurants({
+        location,
+        cuisine,
+        rating,
+        price,
+        distance
+      });
+
+      const results = Array.isArray(resp.businesses) ? resp.businesses : [];
+      if (!results.length) {
+        setRestaurants([]);
+        setPending(false);
+        return;
+      }
+      setRestaurants(results);
+      setSuggestionIndex(Math.floor(Math.random() * results.length));
       setPending(false);
-    }, 950);
+
+    } catch (err) {
+      setError(err.message || "Failed to load restaurant data.");
+      setPending(false);
+    }
   };
+
+  function rerollSuggestion() {
+    if (restaurants.length > 1) {
+      let idx;
+      do {
+        idx = Math.floor(Math.random() * restaurants.length);
+      } while (idx === suggestionIndex && restaurants.length > 1);
+      setSuggestionIndex(idx);
+    }
+  }
+
+  const suggestion = 
+    (restaurants.length && suggestionIndex !== null) ? restaurants[suggestionIndex] : null;
 
   return (
     <div className="container" style={{ marginTop: "3rem", maxWidth: 480 }}>
@@ -149,10 +184,65 @@ export default function MainContainer() {
           type="submit"
           disabled={pending}
         >
-          {pending ? "Thinking..." : "Suggest"}
+          {pending ? "Searching..." : "Suggest"}
         </button>
       </form>
 
+      {/* Loading State */}
+      {pending && (
+        <div className="suggestion-box" style={{
+          background: "#222226",
+          color: "#fff",
+          borderRadius: "13px",
+          boxShadow: "0 2px 20px 0 rgba(232,122,65,0.13)",
+          padding: "1.7em 1.2em",
+          marginTop: "2.5em",
+          textAlign: "center",
+          fontSize: "1.15em",
+          fontWeight: 500,
+          border: "1.5px solid var(--kavia-orange)"
+        }}>
+          Finding delicious places near you...
+        </div>
+      )}
+
+      {/* Error State */}
+      {error && (
+        <div className="suggestion-box" style={{
+          background: "#312014",
+          color: "#fff",
+          borderRadius: "13px",
+          boxShadow: "0 2px 20px 0 rgba(255,50,0,0.13)",
+          padding: "1.5em 1.2em",
+          marginTop: "2.3em",
+          textAlign: "center",
+          fontSize: "1.14em",
+          fontWeight: 500,
+          border: "2px solid #E87A41"
+        }}>
+          {error}
+        </div>
+      )}
+
+      {/* No Result State */}
+      {!pending && !error && restaurants.length === 0 && suggestionIndex === null && (
+        <div className="suggestion-box" style={{
+          background: "#1A2328",
+          color: "#fff",
+          borderRadius: "13px",
+          boxShadow: "0 2px 18px 0 rgba(80,90,120,0.09)",
+          padding: "1.5em 1.2em",
+          marginTop: "2.3em",
+          textAlign: "center",
+          fontSize: "1.08em",
+          fontWeight: 500,
+          border: "1.5px solid var(--kavia-orange)"
+        }}>
+          Enter your info and hit Suggest to begin!
+        </div>
+      )}
+
+      {/* Actual Suggestion State */}
       {suggestion && (
         <div className="suggestion-box" style={{
           background: "#222226",
@@ -166,7 +256,32 @@ export default function MainContainer() {
           fontWeight: 600,
           border: "1.5px solid var(--kavia-orange)"
         }}>
-          {suggestion}
+          <div>
+            <span style={{ fontSize: '1.22em', fontWeight: '700' }}>{suggestion.name}</span>
+            {suggestion.rating ? (
+              <>
+                <br />
+                <span style={{ color: "#FFC107", fontWeight: 500 }}>★ {suggestion.rating}</span>
+                {suggestion.price && <> <span style={{ color: "#71FF7D" }}>{suggestion.price}</span></>}
+              </>
+            ) : null}
+            <br />
+            {suggestion.location && suggestion.location.display_address &&
+              <span style={{ color: "#bbb" }}>{suggestion.location.display_address.join(', ')}</span>}
+            <br />
+            {/* Link to Yelp */}
+            <a href={suggestion.url} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', margin: '8px 0', color: "#E87A41" }}>
+              View on Yelp
+            </a>
+            <br />
+          </div>
+          <button className="btn" style={{
+            marginTop: '0.8em'
+          }}
+            onClick={rerollSuggestion}
+            disabled={restaurants.length <= 1}
+            type="button"
+          >Re-roll</button>
         </div>
       )}
 
