@@ -48,6 +48,12 @@ export async function fetchRestaurants({ location, cuisine, rating, price, dista
       console.log("[Frontend/api.js] Sample business:", json.businesses[0]?.name, json.businesses[0]?.id);
       // Extra debug: Log entire first business object for diagnosis
       console.log("[Frontend/api.js] Full sample business:", json.businesses[0]);
+    } else {
+      // Enhanced debug: If backend responded but gave no businesses, log entire response for troubleshooting
+      console.warn("[Frontend/api.js] WARNING: Backend responded but businesses empty. Full response:", json);
+      if (window && window.localStorage) {
+        window.localStorage.setItem("__api_last_backend_response__", JSON.stringify(json));
+      }
     }
   }
   return json;

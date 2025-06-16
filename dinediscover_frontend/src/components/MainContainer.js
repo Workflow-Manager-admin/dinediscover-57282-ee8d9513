@@ -84,6 +84,12 @@ export default function MainContainer() {
       if (results.length) {
         // Print sample business for confirmation
         console.log("[MainContainer] Sample business:", results[0]);
+      } else {
+        // Enhanced debug: If backend responded but zero business, print out the full backend response for deeper analysis
+        console.warn("[MainContainer] WARNING: Backend responded, but businesses array is empty (printing full backend response):", resp);
+        if (typeof window !== "undefined" && window && window.localStorage) {
+            window.localStorage.setItem("__dinediscover_last_backend_response__", JSON.stringify(resp));
+        }
       }
       if (!results.length) {
         setRestaurants([]);
