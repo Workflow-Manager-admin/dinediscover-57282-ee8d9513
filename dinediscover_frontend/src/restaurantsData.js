@@ -546,6 +546,349 @@ const restaurantsData = [
     ]
   },
   // Add more entries as needed for even more diversity and sample depth...
+  // ======== BEGIN ADDITIONAL RESTAURANTS FOR SAMPLE DEPTH ========
+
+  {
+    name: "Gene & Georgetti",
+    address: "500 N Franklin St, Chicago, IL 60654",
+    cuisine: "Steakhouse",
+    price: "$$$$",
+    rating: 4.3,
+    distance: 1.4,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/w4jtwdGuh8jqBx0WOEocjw/o.jpg",
+    review_count: 1632,
+    url: "https://www.yelp.com/biz/gene-and-georgetti-chicago",
+    categories: [{ alias: "steak", title: "Steakhouses" }, { alias: "italian", title: "Italian" }],
+    location: { display_address: ["500 N Franklin St", "Chicago, IL 60654"] },
+    comments: [
+      { user: "Nina G.", text: "Classic Chicago steakhouse with history and huge chops!" },
+      { user: "Peter D.", text: "The garlic bread and ribeye are both unforgettable." }
+    ]
+  },
+  {
+    name: "Fat Rice",
+    address: "2957 W Diversey Ave, Chicago, IL 60647",
+    cuisine: "Macanese",
+    price: "$$$",
+    rating: 4.5,
+    distance: 5.8,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/iJmrA30_YW_SAtiLGOq9Zg/o.jpg",
+    review_count: 1029,
+    url: "https://www.yelp.com/biz/fat-rice-chicago",
+    categories: [{ alias: "macanese", title: "Macanese" }, { alias: "asianfusion", title: "Asian Fusion" }],
+    location: { display_address: ["2957 W Diversey Ave", "Chicago, IL 60647"] },
+    comments: [
+      { user: "Kim W.", text: "Try the Arroz Gordo for a one-of-a-kind meal!" },
+      { user: "Brian C.", text: "Creative, craveable, and fun - flavors you won’t find elsewhere." }
+    ]
+  },
+  {
+    name: "Girl & the Goat",
+    address: "809 W Randolph St, Chicago, IL 60607",
+    cuisine: "American",
+    price: "$$$$",
+    rating: 4.6,
+    distance: 1.7,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/B9B5Eq9XcslmEYWCDEPj0g/o.jpg",
+    review_count: 8730,
+    url: "https://www.yelp.com/biz/girl-and-the-goat-chicago",
+    categories: [{ alias: "newamerican", title: "American (New)" }, { alias: "gastropubs", title: "Gastropubs" }],
+    location: { display_address: ["809 W Randolph St", "Chicago, IL 60607"] },
+    comments: [
+      { user: "Sasha R.", text: "Impossible to go wrong! Small plates are adventurous, and the vibe is always lively." },
+      { user: "Kevin J.", text: "Goat empanadas are next-level. Make a reservation!" }
+    ]
+  },
+  {
+    name: "El Che Steakhouse & Bar",
+    address: "845 W Washington Blvd, Chicago, IL 60607",
+    cuisine: "Argentinian",
+    price: "$$$",
+    rating: 4.4,
+    distance: 1.6,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/0YpiWSX9IMAJTSZLvNp4Nw/o.jpg",
+    review_count: 1000,
+    url: "https://www.yelp.com/biz/el-che-bar-chicago",
+    categories: [{ alias: "argentine", title: "Argentine" }, { alias: "steak", title: "Steakhouses" }],
+    location: { display_address: ["845 W Washington Blvd", "Chicago, IL 60607"] },
+    comments: [
+      { user: "Lucia M.", text: "Smoked meats and chimichurri - a South American delight!" },
+      { user: "Markus S.", text: "Sit by the open-fire grill for the best seat in the house." }
+    ]
+  },
+  {
+    name: "El Milagro Tortilleria",
+    address: "1927 S Blue Island Ave, Chicago, IL 60608",
+    cuisine: "Mexican",
+    price: "$",
+    rating: 4.8,
+    distance: 3.3,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/E0VU9O4MbEhCrRHJxuLmMw/o.jpg",
+    review_count: 589,
+    url: "https://www.yelp.com/biz/el-milagro-tortilleria-chicago-2",
+    categories: [{ alias: "mexican", title: "Mexican" }, { alias: "tortillas", title: "Tortillas" }],
+    location: { display_address: ["1927 S Blue Island Ave", "Chicago, IL 60608"] },
+    comments: [
+      { user: "Lila Q.", text: "Freshest tortillas and incredible tacos for dirt cheap." },
+      { user: "Rolando R.", text: "Hole-in-the-wall experience. I come here weekly!" }
+    ]
+  },
+  {
+    name: "Cumin",
+    address: "1414 N Milwaukee Ave, Chicago, IL 60622",
+    cuisine: "Indian/Nepalese",
+    price: "$$",
+    rating: 4.5,
+    distance: 2.9,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/N2efMGQxwPyNYRgdAzvF2g/o.jpg",
+    review_count: 1555,
+    url: "https://www.yelp.com/biz/cumin-chicago",
+    categories: [{ alias: "indpak", title: "Indian" }, { alias: "himalayan", title: "Himalayan/Nepalese" }],
+    location: { display_address: ["1414 N Milwaukee Ave", "Chicago, IL 60622"] },
+    comments: [
+      { user: "Ramesh K.", text: "Great curries, momo dumplings, and spicy vindaloo!" },
+      { user: "Taylor M.", text: "Consistent quality every time. Mango lassi is so refreshing." }
+    ]
+  },
+  {
+    name: "Duck Duck Goat",
+    address: "857 W Fulton Market, Chicago, IL 60607",
+    cuisine: "Chinese",
+    price: "$$$",
+    rating: 4.3,
+    distance: 1.9,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/8FgE7LneGn5UvE2n0M46Qg/o.jpg",
+    review_count: 2951,
+    url: "https://www.yelp.com/biz/duck-duck-goat-chicago",
+    categories: [{ alias: "chinese", title: "Chinese" }, { alias: "dimsum", title: "Dim Sum" }],
+    location: { display_address: ["857 W Fulton Market", "Chicago, IL 60607"] },
+    comments: [
+      { user: "William Z.", text: "Love the vibe and soup dumplings. Unique take on Chinatown classics." },
+      { user: "Patrice B.", text: "Try the char siu bao and hand-drawn noodles!" }
+    ]
+  },
+  {
+    name: "Xoco",
+    address: "449 N Clark St, Chicago, IL 60654",
+    cuisine: "Mexican",
+    price: "$$",
+    rating: 4.4,
+    distance: 1.2,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/D7qfBWcqH9DoRK37GEPmrA/o.jpg",
+    review_count: 3883,
+    url: "https://www.yelp.com/biz/xoco-chicago",
+    categories: [{ alias: "mexican", title: "Mexican" }, { alias: "sandwiches", title: "Sandwiches" }],
+    location: { display_address: ["449 N Clark St", "Chicago, IL 60654"] },
+    comments: [
+      { user: "Teresa Q.", text: "Outstanding tortas and churros. The hot chocolate is unforgettable." },
+      { user: "Liam S.", text: "Quick, high-quality eats in River North." }
+    ]
+  },
+  {
+    name: "The Berghoff Restaurant",
+    address: "17 W Adams St, Chicago, IL 60603",
+    cuisine: "German",
+    price: "$$",
+    rating: 4.2,
+    distance: 0.9,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/IHevi4d4Q_JzM5-iQY03ZQ/o.jpg",
+    review_count: 2467,
+    url: "https://www.yelp.com/biz/the-berghoff-restaurant-chicago-4",
+    categories: [{ alias: "german", title: "German" }, { alias: "bar", title: "Bars" }],
+    location: { display_address: ["17 W Adams St", "Chicago, IL 60603"] },
+    comments: [
+      { user: "Helmut F.", text: "Classic schnitzel and homemade beer since the 1800s!" },
+      { user: "Mike G.", text: "Perfect spot for a bit of Chicago history and a hearty meal." }
+    ]
+  },
+  {
+    name: "Quartino Ristorante",
+    address: "626 N State St, Chicago, IL 60654",
+    cuisine: "Italian",
+    price: "$$",
+    rating: 4.4,
+    distance: 1.0,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/X-F-EU48IeEubQf4aB3ZRw/o.jpg",
+    review_count: 6783,
+    url: "https://www.yelp.com/biz/quartino-ristorante-chicago",
+    categories: [{ alias: "italian", title: "Italian" }, { alias: "wine_bar", title: "Wine Bars" }],
+    location: { display_address: ["626 N State St", "Chicago, IL 60654"] },
+    comments: [
+      { user: "Carla M.", text: "Housemade pastas and salumi board are spot-on." },
+      { user: "John C.", text: "Family-style dining and lively atmosphere." }
+    ]
+  },
+  {
+    name: "Frontera Grill",
+    address: "445 N Clark St, Chicago, IL 60654",
+    cuisine: "Mexican",
+    price: "$$$",
+    rating: 4.5,
+    distance: 1.1,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/Nm0S6FJ-3UGb0kaqCdoW7w/o.jpg",
+    review_count: 4458,
+    url: "https://www.yelp.com/biz/frontera-grill-chicago",
+    categories: [{ alias: "mexican", title: "Mexican" }, { alias: "latin", title: "Latin American" }],
+    location: { display_address: ["445 N Clark St", "Chicago, IL 60654"] },
+    comments: [
+      { user: "Brenda V.", text: "Inventive Mexican dishes by Chef Rick Bayless. Must try!" },
+      { user: "Rob Z.", text: "Guacamole and margaritas are perfection." }
+    ]
+  },
+  {
+    name: "The Delta",
+    address: "1745 W North Ave, Chicago, IL 60622",
+    cuisine: "Southern/Cajun",
+    price: "$$",
+    rating: 4.4,
+    distance: 2.6,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/gw0Gp4Q_sSRRQsEEuMArfg/o.jpg",
+    review_count: 782,
+    url: "https://www.yelp.com/biz/the-delta-chicago-2",
+    categories: [{ alias: "southern", title: "Southern" }, { alias: "cajun", title: "Cajun/Creole" }],
+    location: { display_address: ["1745 W North Ave", "Chicago, IL 60622"] },
+    comments: [
+      { user: "Tonya L.", text: "Authentic tamales and spicy cocktails make this a favorite spot." },
+      { user: "Perry N.", text: "Live jazz, crispy catfish – a Delta treat." }
+    ]
+  },
+  {
+    name: "Hamburger Mary's",
+    address: "5400 N Clark St, Chicago, IL 60640",
+    cuisine: "American/Burger",
+    price: "$$",
+    rating: 4.3,
+    distance: 8.2,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/ZzWE68f1OibHEamBtyB27w/o.jpg",
+    review_count: 2579,
+    url: "https://www.yelp.com/biz/hamburger-marys-chicago",
+    categories: [{ alias: "burgers", title: "Burgers" }, { alias: "bars", title: "Bars" }],
+    location: { display_address: ["5400 N Clark St", "Chicago, IL 60640"] },
+    comments: [
+      { user: "Dana O.", text: "Festive drag shows, great burgers, love the energy." },
+      { user: "Chris G.", text: "Fun spot for groups. The bloody mary is wild!" }
+    ]
+  },
+  {
+    name: "Uncle Mike's Place",
+    address: "1700 W Grand Ave, Chicago, IL 60622",
+    cuisine: "Filipino/American",
+    price: "$",
+    rating: 4.6,
+    distance: 2.2,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/C7k1SwKHIAEghksx6olrSA/o.jpg",
+    review_count: 1175,
+    url: "https://www.yelp.com/biz/uncle-mikes-place-chicago",
+    categories: [{ alias: "filipino", title: "Filipino" }, { alias: "breakfast_brunch", title: "Breakfast & Brunch" }],
+    location: { display_address: ["1700 W Grand Ave", "Chicago, IL 60622"] },
+    comments: [
+      { user: "Patrice C.", text: "Longanisa breakfast is my go-to. Real family feel here." },
+      { user: "Marco D.", text: "Great portions for the price, especially the tocino and garlic rice." }
+    ]
+  },
+  {
+    name: "Wildberry Pancakes & Cafe",
+    address: "130 E Randolph St, Chicago, IL 60601",
+    cuisine: "Breakfast/Brunch",
+    price: "$$",
+    rating: 4.7,
+    distance: 0.9,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/z4sPTsVY5XA4UDCo9C7yYA/o.jpg",
+    review_count: 10024,
+    url: "https://www.yelp.com/biz/wildberry-pancakes-and-cafe-chicago",
+    categories: [{ alias: "breakfast_brunch", title: "Breakfast & Brunch" }, { alias: "cafes", title: "Cafes" }],
+    location: { display_address: ["130 E Randolph St", "Chicago, IL 60601"] },
+    comments: [
+      { user: "Leah D.", text: "Line is long, but so worth it - best pancakes in the city!" },
+      { user: "Steven W.", text: "Try the berry bliss or cinnamon roll pancakes." }
+    ]
+  },
+  {
+    name: "Lou Mitchell's",
+    address: "565 W Jackson Blvd, Chicago, IL 60661",
+    cuisine: "Diner/American",
+    price: "$$",
+    rating: 4.2,
+    distance: 1.5,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/JQY_ISvF2CbcILgdKaRZww/o.jpg",
+    review_count: 2563,
+    url: "https://www.yelp.com/biz/lou-mitchells-chicago",
+    categories: [{ alias: "diner", title: "Diners" }, { alias: "american", title: "American (Traditional)" }],
+    location: { display_address: ["565 W Jackson Blvd", "Chicago, IL 60661"] },
+    comments: [
+      { user: "Tom R.", text: "Legendary breakfast place, love the donuts and fresh eggs." },
+      { user: "Gina P.", text: "The coffee and omelets are the best way to start your day." }
+    ]
+  },
+  {
+    name: "Ricobene's",
+    address: "252 W 26th St, Chicago, IL 60616",
+    cuisine: "Italian",
+    price: "$",
+    rating: 4.4,
+    distance: 2.9,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/H-qd8PHXYix4ZwVmVUsvHw/o.jpg",
+    review_count: 1129,
+    url: "https://www.yelp.com/biz/ricobenes-chicago",
+    categories: [{ alias: "italian", title: "Italian" }, { alias: "sandwiches", title: "Sandwiches" }],
+    location: { display_address: ["252 W 26th St", "Chicago, IL 60616"] },
+    comments: [
+      { user: "Sal V.", text: "Breaded steak sandwich - huge and always excellent." },
+      { user: "Luis T.", text: "Hidden gem for subs. Don’t skip the fries." }
+    ]
+  },
+  {
+    name: "The Halal Guys",
+    address: "49 W Randolph St, Chicago, IL 60601",
+    cuisine: "Middle Eastern",
+    price: "$",
+    rating: 4.3,
+    distance: 0.5,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/AnzYbWtDDk2MAIBZ30fjpw/o.jpg",
+    review_count: 2754,
+    url: "https://www.yelp.com/biz/the-halal-guys-chicago-2",
+    categories: [{ alias: "mideastern", title: "Middle Eastern" }, { alias: "halal", title: "Halal" }],
+    location: { display_address: ["49 W Randolph St", "Chicago, IL 60601"] },
+    comments: [
+      { user: "Aadil R.", text: "Famous for a reason! The white sauce is addictive." },
+      { user: "Priya K.", text: "Quick and filling after a night out. Falafel is great too." }
+    ]
+  },
+  {
+    name: "Floriole Cafe & Bakery",
+    address: "1220 W Webster Ave, Chicago, IL 60614",
+    cuisine: "French/Bakery",
+    price: "$$",
+    rating: 4.7,
+    distance: 3.2,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/xrSvCgxZbt_nygkt97PYhw/o.jpg",
+    review_count: 1389,
+    url: "https://www.yelp.com/biz/floriole-cafe-and-bakery-chicago",
+    categories: [{ alias: "french", title: "French" }, { alias: "bakeries", title: "Bakeries" }],
+    location: { display_address: ["1220 W Webster Ave", "Chicago, IL 60614"] },
+    comments: [
+      { user: "Simone G.", text: "Flaky croissants and delicate pastries. Cozy for brunch." },
+      { user: "Nick H.", text: "Coffee and a tart in their sunroom is my weekend favorite." }
+    ]
+  },
+  {
+    name: "Bari Subs & Italian Foods",
+    address: "1120 W Grand Ave, Chicago, IL 60642",
+    cuisine: "Deli/Italian",
+    price: "$",
+    rating: 4.8,
+    distance: 1.9,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/SFWhbRtWPx0gKHXBgNAO9A/o.jpg",
+    review_count: 1473,
+    url: "https://www.yelp.com/biz/bari-subs-and-italian-foods-chicago",
+    categories: [{ alias: "delis", title: "Delis" }, { alias: "italian", title: "Italian" }],
+    location: { display_address: ["1120 W Grand Ave", "Chicago, IL 60642"] },
+    comments: [
+      { user: "Alessandro M.", text: "Best Italian subs in the city, hands down." },
+      { user: "Michelle W.", text: "Crusty bread, spicy giardiniera - old school Chicago treat." }
+    ]
+  }
+  // ======== END ADDITIONAL RESTAURANTS ========
 ];
 
 export default restaurantsData;
