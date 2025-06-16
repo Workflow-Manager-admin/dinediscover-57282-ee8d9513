@@ -248,44 +248,105 @@ export default function MainContainer() {
 
       {/* Actual Suggestion State */}
       {suggestion && (
-        <div className="suggestion-box" style={{
-          background: "#222226",
-          color: "#fff",
-          borderRadius: "13px",
-          boxShadow: "0 2px 20px 0 rgba(232,122,65,0.13)",
-          padding: "1.7em 1.2em",
-          marginTop: "2.5em",
-          textAlign: "center",
-          fontSize: "1.18em",
-          fontWeight: 600,
-          border: "1.5px solid var(--kavia-orange)"
-        }}>
-          <div>
-            <span style={{ fontSize: '1.22em', fontWeight: '700' }}>{suggestion.name}</span>
-            {suggestion.rating ? (
-              <>
-                <br />
-                <span style={{ color: "#FFC107", fontWeight: 500 }}>★ {suggestion.rating}</span>
-                {suggestion.price && <> <span style={{ color: "#71FF7D" }}>{suggestion.price}</span></>}
-              </>
-            ) : null}
-            <br />
-            {suggestion.location && suggestion.location.display_address &&
-              <span style={{ color: "#bbb" }}>{suggestion.location.display_address.join(', ')}</span>}
-            <br />
-            {/* Link to Yelp */}
-            <a href={suggestion.url} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', margin: '8px 0', color: "#E87A41" }}>
-              View on Yelp
-            </a>
-            <br />
+        <div className="restaurant-card">
+          <div className="restaurant-card-inner">
+            {/* Image Section */}
+            {suggestion.image_url ? (
+              <div className="restaurant-photo-wrap">
+                <img
+                  src={suggestion.image_url}
+                  alt={suggestion.name}
+                  className="restaurant-photo"
+                  loading="lazy"
+                  style={{ borderRadius: "12px 12px 0 0", width: "100%", maxHeight: 184, objectFit: "cover" }}
+                />
+              </div>
+            ) : (
+              <div
+                className="restaurant-photo-placeholder"
+                style={{
+                  height: 128,
+                  background: "linear-gradient(90deg,#222226 60%,#232327)",
+                  borderRadius: "12px 12px 0 0",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#E87A41",
+                  fontSize: "2.6em"
+                }}
+              >
+                <span role="img" aria-label="Restaurant">🍽️</span>
+              </div>
+            )}
+
+            <div className="restaurant-card-content">
+              <h2 className="restaurant-card-title">{suggestion.name}</h2>
+              {/* Price and Rating Row */}
+              <div className="restaurant-meta-row">
+                {suggestion.price && (
+                  <span className="card-pill card-pill-price">{suggestion.price}</span>
+                )}
+                {typeof suggestion.rating !== "undefined" && (
+                  <span className="card-pill card-pill-rating" title={`${suggestion.rating} stars`}>
+                    <span style={{ color: "#FFC107", marginRight: 2, fontWeight: 700 }}>★</span>
+                    {suggestion.rating}
+                  </span>
+                )}
+                {suggestion.review_count && (
+                  <span className="card-pill card-pill-reviewcount" title="Review count">
+                    <span style={{ marginRight: 2 }}>💬</span>
+                    {suggestion.review_count}
+                  </span>
+                )}
+              </div>
+              {/* Address */}
+              {suggestion.location && suggestion.location.display_address && (
+                <div className="restaurant-card-address">{suggestion.location.display_address.join(", ")}</div>
+              )}
+
+              {/* Cuisine */}
+              {suggestion.categories && suggestion.categories.length > 0 && (
+                <div className="restaurant-card-cuisines">
+                  {suggestion.categories.map((cat, i) =>
+                    <span key={cat.alias || cat.title} className="card-pill card-pill-cuisine">
+                      {cat.title}{i < suggestion.categories.length - 1 ? " · " : ""}
+                    </span>
+                  )}
+                </div>
+              )}
+
+              {/* Yelp Link */}
+              <div className="restaurant-yelp-row">
+                <a
+                  href={suggestion.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="yelp-link"
+                  title="See more on Yelp"
+                >
+                  <img
+                    src="https://s3-media0.fl.yelpcdn.com/assets/public/default.yji-244a366398a129ec.svg"
+                    alt="Yelp logo"
+                    style={{
+                      height: 18,
+                      verticalAlign: "middle",
+                      marginRight: 5,
+                      filter: "drop-shadow(0 1px 0 #111) brightness(1.3)"
+                    }}
+                  />
+                  <span style={{ color: "#E87A41", fontWeight: 600, letterSpacing: "0.01em" }}>View on Yelp</span>
+                </a>
+              </div>
+              {/* Re-Roll */}
+              <button
+                className="btn btn-reroll"
+                style={{ marginTop: '1.1em', width: "100%", borderRadius: 9 }}
+                onClick={rerollSuggestion}
+                disabled={restaurants.length <= 1}
+                type="button"
+              >Re-roll</button>
+            </div>
           </div>
-          <button className="btn" style={{
-            marginTop: '0.8em'
-          }}
-            onClick={rerollSuggestion}
-            disabled={restaurants.length <= 1}
-            type="button"
-          >Re-roll</button>
         </div>
       )}
 
