@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 import restaurantsData from "../restaurantsData";
+import MapView from "./MapView";
 
 /**
  * MainContainer component for DineDiscover.
@@ -324,6 +325,21 @@ export default function MainContainer() {
                 <span role="img" aria-label="Restaurant">🍽️</span>
               </div>
             )}
+
+            {/* --- Map Integration --- */}
+            {/* Try coordinates if available; else fallback to address string. */}
+            <MapView
+              address={
+                // If location.display_address is present, join; else fallback to .address property.
+                suggestion.location && suggestion.location.display_address
+                  ? suggestion.location.display_address.join(", ")
+                  : suggestion.address || ""
+              }
+              // You may extend static data with 'lat' & 'lng' fields in future, here only if present:
+              lat={suggestion.lat}
+              lng={suggestion.lng}
+              height={200}
+            />
 
             <div className="restaurant-card-content" style={{ paddingTop: "1.3em", paddingBottom: "0.8em" }}>
               <h2 className="restaurant-card-title" style={{
