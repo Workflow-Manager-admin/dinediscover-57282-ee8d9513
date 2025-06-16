@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import MainContainer from './components/MainContainer';
 
+// If you ever reference PUBLIC_URL, make sure it's process.env.PUBLIC_URL in JS or %PUBLIC_URL% in static HTML!
+
 function App() {
   return (
     <div className="app">
