@@ -4,7 +4,11 @@ import { fetchRestaurants } from "../api";
 
 /**
  * MainContainer component for DineDiscover.
- * Enhanced with modern, accessible filters: rating, price, and distance.
+ * Implements asynchronous data fetching from a backend proxy (Yelp Fusion API) using modern React state management.
+ * User filters (location, cuisine, price, rating, distance) are sent as GET params.
+ * Handles all loading, error, and empty result states for a smooth UX.
+ * Maps backend data to the display UI format.
+ * API key is managed ONLY in the backend proxy via environment variable for security.
  */
 const CUISINE_OPTIONS = [
   "",
