@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
-import { fetchRestaurants } from "../api";
+import restaurantsData from "../restaurantsData";
 
 /**
  * MainContainer component for DineDiscover.
@@ -43,6 +43,10 @@ const DISTANCE_OPTIONS = [
   { value: "50", label: "Within 50 miles" }
 ];
 
+/**
+ * Returns miles between two points using a placeholder.
+ * In production, geocode and calculate. Here, static data contains distance values from downtown Chicago.
+ */
 // PUBLIC_INTERFACE
 export default function MainContainer() {
   const [location, setLocation] = useState("");
@@ -56,56 +60,57 @@ export default function MainContainer() {
   const [suggestionIndex, setSuggestionIndex] = useState(null);
 
   // PUBLIC_INTERFACE
-  const handleSuggest = async (e) => {
+  const handleSuggest = (e) => {
     e.preventDefault();
     setPending(true);
     setError(null);
     setRestaurants([]);
     setSuggestionIndex(null);
 
-    try {
-      const resp = await fetchRestaurants({
-        location,
-        cuisine,
-        rating,
-        price,
-        distance
-      });
+    // Simulate instant "API" with static data
+    setTimeout(() => {
+      let filtered = restaurantsData;
 
-      // DEBUG: Output full API response to browser console
-      // eslint-disable-next-line no-console
-      console.log("[MainContainer] fetchRestaurants() raw response:", resp);
-
-      const results = Array.isArray(resp.businesses) ? resp.businesses : [];
-
-      // DEBUG: Output how many businesses after any (client side) filtering
-      // eslint-disable-next-line no-console
-      console.log(`[MainContainer] Businesses after frontend parsing: ${results.length}`);
-      if (results.length) {
-        // Print sample business for confirmation
-        console.log("[MainContainer] Sample business:", results[0]);
-      } else {
-        // Enhanced debug: If backend responded but zero business, print out the full backend response for deeper analysis
-        console.warn("[MainContainer] WARNING: Backend responded, but businesses array is empty (printing full backend response):", resp);
-        if (typeof window !== "undefined" && window && window.localStorage) {
-            window.localStorage.setItem("__dinediscover_last_backend_response__", JSON.stringify(resp));
-        }
-      }
-      if (!results.length) {
-        setRestaurants([]);
+      // Only require location field for now; filter on others
+      // In a real app, you'd geocode location, but here we just ensure it's filled
+      if (!location.trim()) {
+        setError("Please enter a location.");
         setPending(false);
         return;
       }
-      setRestaurants(results);
-      setSuggestionIndex(Math.floor(Math.random() * results.length));
-      setPending(false);
 
-    } catch (err) {
+      if (cuisine && cuisine !== "Other") {
+        filtered = filtered.filter(r =>
+          r.cuisine && r.cuisine.toLowerCase().includes(cuisine.toLowerCase())
+        );
+      }
+      if (rating) {
+        filtered = filtered.filter(r => Number(r.rating) >= Number(rating));
+      }
+      if (price) {
+        filtered = filtered.filter(r => r.price && r.price.startsWith(price));
+      }
+      if (distance) {
+        filtered = filtered.filter(r => r.distance && Number(r.distance) <= Number(distance));
+      }
+
+      // DEBUG: Output filter pass count and sample
       // eslint-disable-next-line no-console
-      console.error("[MainContainer] Error during fetchRestaurants:", err);
-      setError(err.message || "Failed to load restaurant data.");
+      if (typeof window !== "undefined") {
+        console.log("[MainContainer] Filtered restaurants:", filtered.length, filtered[0]);
+      }
+      if (!filtered.length) {
+        setRestaurants([]);
+        setError("No restaurants found with the selected criteria.");
+        setPending(false);
+        return;
+      }
+
+      setRestaurants(filtered);
+      setSuggestionIndex(Math.floor(Math.random() * filtered.length));
       setPending(false);
-    }
+    }, 200); // Simulate network
+
   };
 
   function rerollSuggestion() {
@@ -118,7 +123,7 @@ export default function MainContainer() {
     }
   }
 
-  const suggestion = 
+  const suggestion =
     (restaurants.length && suggestionIndex !== null) ? restaurants[suggestionIndex] : null;
 
   return (
