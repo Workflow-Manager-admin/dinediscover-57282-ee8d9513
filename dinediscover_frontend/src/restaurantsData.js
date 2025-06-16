@@ -17,7 +17,11 @@ const restaurantsData = [
     categories: [{ alias: "pizza", title: "Pizza" }, { alias: "italian", title: "Italian" }],
     location: {
       display_address: ["805 S State St", "Chicago, IL 60605"]
-    }
+    },
+    comments: [
+      { user: "Megan T.", text: "Best deep dish ever! The crust is crunchy and buttery." },
+      { user: "Jason L.", text: "The cheese pull is unreal, and the staff made us feel at home." }
+    ]
   },
   {
     name: "Girl & the Goat",
@@ -32,7 +36,11 @@ const restaurantsData = [
     categories: [{ alias: "newamerican", title: "American (New)" }],
     location: {
       display_address: ["809 W Randolph St", "Chicago, IL 60607"]
-    }
+    },
+    comments: [
+      { user: "Samantha D.", text: "Inventive plates and vibrant atmosphere. Goat empanadas are a must." },
+      { user: "Kevin R.", text: "Every dish feels like a flavor journey. Definitely lives up to the hype!" }
+    ]
   },
   {
     name: "Portillo's Hot Dogs",
@@ -47,7 +55,11 @@ const restaurantsData = [
     categories: [{ alias: "hotdog", title: "Hot Dogs" }, { alias: "tradamerican", title: "American (Traditional)" }],
     location: {
       display_address: ["100 W Ontario St", "Chicago, IL 60654"]
-    }
+    },
+    comments: [
+      { user: "Alex H.", text: "Iconic Chicago dogs — the real deal! Don’t miss the chocolate cake shake." },
+      { user: "Priya P.", text: "Quick service, great value, and the Italian beef is mouthwatering." }
+    ]
   },
   {
     name: "Alinea",
@@ -62,7 +74,11 @@ const restaurantsData = [
     categories: [{ alias: "newamerican", title: "American (New)" }, { alias: "fine-dining", title: "Fine Dining" }],
     location: {
       display_address: ["1723 N Halsted St", "Chicago, IL 60614"]
-    }
+    },
+    comments: [
+      { user: "Kira W.", text: "An unforgettable, once-in-a-lifetime culinary experience." },
+      { user: "Tom S.", text: "Service and creativity are beyond compare!" }
+    ]
   },
   {
     name: "Shanghai Terrace",
@@ -77,7 +93,11 @@ const restaurantsData = [
     categories: [{ alias: "chinese", title: "Chinese" }, { alias: "dimsum", title: "Dim Sum" }],
     location: {
       display_address: ["108 E Superior St", "Chicago, IL 60611"]
-    }
+    },
+    comments: [
+      { user: "Wen C.", text: "Gorgeous ambiance and authentic dim sum. You’ll feel transported to Shanghai." },
+      { user: "Mila F.", text: "Delicious Peking duck and lovely rooftop views." }
+    ]
   },
   {
     name: "Le Colonial",
@@ -92,7 +112,11 @@ const restaurantsData = [
     categories: [{ alias: "thai", title: "Thai" }, { alias: "french", title: "French" }],
     location: {
       display_address: ["57 E Oak St", "Chicago, IL 60611"]
-    }
+    },
+    comments: [
+      { user: "Nina G.", text: "Romantic setting and the best curry in the city." },
+      { user: "Erik M.", text: "Fusion menu done right, especially the spring rolls!" }
+    ]
   },
   {
     name: "Frontera Grill",
@@ -107,7 +131,11 @@ const restaurantsData = [
     categories: [{ alias: "mexican", title: "Mexican" }],
     location: {
       display_address: ["445 N Clark St", "Chicago, IL 60654"]
-    }
+    },
+    comments: [
+      { user: "Luis V.", text: "Colorful décor, zesty margaritas, and the best mole outside Oaxaca." },
+      { user: "Emma Z.", text: "Vibrant flavors, especially the ceviche. Highly recommend." }
+    ]
   },
   {
     name: "The Chicago Diner",
@@ -122,7 +150,11 @@ const restaurantsData = [
     categories: [{ alias: "vegetarian", title: "Vegetarian" }, { alias: "vegan", title: "Vegan" }],
     location: {
       display_address: ["2333 N Milwaukee Ave", "Chicago, IL 60647"]
-    }
+    },
+    comments: [
+      { user: "Rachel B.", text: "Legendary vegan milkshakes and creative comfort food." },
+      { user: "Oscar D.", text: "As a meat-eater, even I love this place!" }
+    ]
   },
   {
     name: "Cumin",
@@ -137,7 +169,11 @@ const restaurantsData = [
     categories: [{ alias: "indpak", title: "Indian" }, { alias: "nepalese", title: "Nepalese" }],
     location: {
       display_address: ["1414 N Milwaukee Ave", "Chicago, IL 60622"]
-    }
+    },
+    comments: [
+      { user: "Shweta P.", text: "Amazing flavors and authentic spices. Try the momos!" },
+      { user: "Ben Y.", text: "Fantastic lunch specials and huge portions." }
+    ]
   },
   {
     name: "Mi Tocaya Antojería",
@@ -152,7 +188,11 @@ const restaurantsData = [
     categories: [{ alias: "mexican", title: "Mexican" }],
     location: {
       display_address: ["2800 W Logan Blvd", "Chicago, IL 60647"]
-    }
+    },
+    comments: [
+      { user: "Valeria C.", text: "Creative Mexican food and warm, cozy vibe." },
+      { user: "Jake H.", text: "The best guacamole in Chicago!" }
+    ]
   }
 ];
 

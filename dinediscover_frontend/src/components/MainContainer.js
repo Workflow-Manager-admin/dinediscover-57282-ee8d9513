@@ -273,47 +273,78 @@ export default function MainContainer() {
 
       {/* Actual Suggestion State */}
       {suggestion && (
-        <div className="restaurant-card">
-          <div className="restaurant-card-inner">
-            {/* Image Section */}
+        <div className="restaurant-card" style={{
+          maxWidth: 520,
+          margin: "2.2em auto",
+          border: "2.5px solid var(--kavia-orange)",
+          boxShadow: "0 8px 32px 2px rgba(232,122,65,0.19), 0 4px 18px 0 #000c"
+        }}>
+          <div className="restaurant-card-inner" style={{ display: "flex", flexDirection: "column" }}>
+            {/* Large Image Section */}
             {suggestion.image_url ? (
-              <div className="restaurant-photo-wrap">
+              <div
+                className="restaurant-photo-wrap"
+                style={{
+                  width: "100%",
+                  maxHeight: 275,
+                  overflow: "hidden",
+                  borderRadius: "22px 22px 0 0",
+                  boxShadow: "0 4px 30px 0 rgba(232,122,65,0.16)"
+                }}
+              >
                 <img
                   src={suggestion.image_url}
                   alt={suggestion.name}
                   className="restaurant-photo"
                   loading="lazy"
-                  style={{ borderRadius: "12px 12px 0 0", width: "100%", maxHeight: 184, objectFit: "cover" }}
+                  style={{
+                    borderRadius: "22px 22px 0 0",
+                    width: "100%",
+                    height: 275,
+                    objectFit: "cover",
+                    boxShadow: "0 2px 14px 0 rgba(40,30,20,0.11)"
+                  }}
                 />
               </div>
             ) : (
               <div
                 className="restaurant-photo-placeholder"
                 style={{
-                  height: 128,
-                  background: "linear-gradient(90deg,#222226 60%,#232327)",
-                  borderRadius: "12px 12px 0 0",
+                  height: 185,
+                  background: "linear-gradient(90deg,#27292e 60%,#232327)",
+                  borderRadius: "22px 22px 0 0",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   color: "#E87A41",
-                  fontSize: "2.6em"
+                  fontSize: "3.1em",
+                  fontWeight: 700
                 }}
               >
                 <span role="img" aria-label="Restaurant">🍽️</span>
               </div>
             )}
 
-            <div className="restaurant-card-content">
-              <h2 className="restaurant-card-title">{suggestion.name}</h2>
-              {/* Price and Rating Row */}
-              <div className="restaurant-meta-row">
+            <div className="restaurant-card-content" style={{ paddingTop: "1.3em", paddingBottom: "0.8em" }}>
+              <h2 className="restaurant-card-title" style={{
+                fontSize: "1.7em",
+                color: "var(--kavia-orange)",
+                marginBottom: "0.32em"
+              }}>{suggestion.name}</h2>
+
+              <div className="restaurant-meta-row" style={{
+                fontSize: "1.12em",
+                marginBottom: "0.75em",
+                gap: "0.6em"
+              }}>
                 {suggestion.price && (
-                  <span className="card-pill card-pill-price">{suggestion.price}</span>
+                  <span className="card-pill card-pill-price" style={{
+                    fontSize: "1.08em", padding: "0.25em 1em"
+                  }}>{suggestion.price}</span>
                 )}
                 {typeof suggestion.rating !== "undefined" && (
-                  <span className="card-pill card-pill-rating" title={`${suggestion.rating} stars`}>
-                    <span style={{ color: "#FFC107", marginRight: 2, fontWeight: 700 }}>★</span>
+                  <span className="card-pill card-pill-rating" title={`${suggestion.rating} stars`} style={{ fontWeight: 700, fontSize: "1.1em" }}>
+                    <span style={{ color: "#FFC107", marginRight: 2 }}>★</span>
                     {suggestion.rating}
                   </span>
                 )}
@@ -324,30 +355,96 @@ export default function MainContainer() {
                   </span>
                 )}
               </div>
-              {/* Address */}
+
               {suggestion.location && suggestion.location.display_address && (
-                <div className="restaurant-card-address">{suggestion.location.display_address.join(", ")}</div>
+                <div className="restaurant-card-address" style={{
+                  marginBottom: "0.8em",
+                  fontSize: "1.04em",
+                  fontWeight: 500,
+                  color: "#E0DFDC"
+                }}>
+                  {suggestion.location.display_address.join(", ")}
+                </div>
               )}
 
-              {/* Cuisine */}
               {suggestion.categories && suggestion.categories.length > 0 && (
-                <div className="restaurant-card-cuisines">
+                <div className="restaurant-card-cuisines" style={{
+                  display: "flex", flexWrap: "wrap", fontSize: "1.08em", marginBottom: "0.66em"
+                }}>
                   {suggestion.categories.map((cat, i) =>
-                    <span key={cat.alias || cat.title} className="card-pill card-pill-cuisine">
+                    <span key={cat.alias || cat.title} className="card-pill card-pill-cuisine" style={{
+                      background: "#251b16",
+                      color: "#E87A41",
+                      fontWeight: 600,
+                      border: "1.2px solid #E87A41aa",
+                      marginRight: "6px"
+                    }}>
                       {cat.title}{i < suggestion.categories.length - 1 ? " · " : ""}
                     </span>
                   )}
                 </div>
               )}
 
+              {/* Comments/Reviews Section, only if `comments` exists */}
+              {Array.isArray(suggestion.comments) && suggestion.comments.length > 0 && (
+                <div
+                  style={{
+                    margin: "1.21em 0 0.75em 0",
+                    padding: "1em 0.9em 1em 0.85em",
+                    background: "linear-gradient(90deg, #221e20 0%, #221a1b 95%)",
+                    borderRadius: "12px",
+                    boxShadow: "0 1.5px 12px 1px rgba(255,140,60,0.045)",
+                    border: "1.2px solid var(--border-color)"
+                  }}
+                >
+                  <div style={{
+                    color: "#FFA040", fontWeight: 600, marginBottom: "0.55em",
+                    fontSize: "1.09em", letterSpacing: "0.01em"
+                  }}>
+                    User Reviews
+                  </div>
+                  <div style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.65em",
+                  }}>
+                    {suggestion.comments.slice(0, 2).map((comment, idx) => (
+                      <div
+                        key={idx}
+                        style={{
+                          background: "#181a1e",
+                          borderRadius: "7px",
+                          fontSize: "1em",
+                          color: "#fff",
+                          padding: "0.63em 1em",
+                          border: "1px solid #35323A",
+                          boxShadow: "0 1px 3px 0 #0005",
+                          marginBottom: "0.05em"
+                        }}
+                      >
+                        <span style={{ color: "#F57C25", fontWeight: 500, marginRight: "0.38em" }}>
+                          {comment.user}:
+                        </span>
+                        <span style={{ color: "var(--text-secondary)" }}>
+                          {comment.text}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Yelp Link */}
-              <div className="restaurant-yelp-row">
+              <div className="restaurant-yelp-row" style={{ marginBottom: "0.65em", marginTop: "0.5em" }}>
                 <a
                   href={suggestion.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="yelp-link"
                   title="See more on Yelp"
+                  style={{
+                    background: "none", border: "none", fontWeight: 700, fontSize: "1.13em"
+                  }}
                 >
                   <img
                     src="https://s3-media0.fl.yelpcdn.com/assets/public/default.yji-244a366398a129ec.svg"
@@ -356,16 +453,22 @@ export default function MainContainer() {
                       height: 18,
                       verticalAlign: "middle",
                       marginRight: 5,
-                      filter: "drop-shadow(0 1px 0 #111) brightness(1.3)"
+                      filter: "drop-shadow(0 1px 0 #111) brightness(1.2)"
                     }}
                   />
-                  <span style={{ color: "#E87A41", fontWeight: 600, letterSpacing: "0.01em" }}>View on Yelp</span>
+                  <span style={{ color: "#E87A41", fontWeight: 700, letterSpacing: "0.01em" }}>View on Yelp</span>
                 </a>
               </div>
               {/* Re-Roll */}
               <button
                 className="btn btn-reroll"
-                style={{ marginTop: '1.1em', width: "100%", borderRadius: 9 }}
+                style={{
+                  marginTop: '1.23em',
+                  width: "100%",
+                  borderRadius: 13,
+                  fontSize: "1.21em",
+                  fontWeight: "bold"
+                }}
                 onClick={rerollSuggestion}
                 disabled={restaurants.length <= 1}
                 type="button"
