@@ -95,6 +95,16 @@ app.get("/api/restaurants", async (req, res) => {
   }
 });
 
+/**
+ * Optionally, add a /api/suggest route as an alias if the frontend could fetch /api/suggest by mistake.
+ * This helps avoid 404 in case frontend uses /api/suggest instead of /api/restaurants.
+ */
+app.get("/api/suggest", async (req, res) => {
+  // Proxy handler: just reuse /api/restaurants logic with same parameters
+  req.url = "/api/restaurants" + (req.url.split("?")[1] ? "?" + req.url.split("?")[1] : "");
+  app._router.handle(req, res, () => {});
+});
+
 // Only start server if directly invoked
 if (require.main === module) {
   const PORT = process.env.BACKEND_PORT || 8080;
