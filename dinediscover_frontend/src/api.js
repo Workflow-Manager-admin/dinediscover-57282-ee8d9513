@@ -22,6 +22,10 @@ export async function fetchRestaurants({ location, cuisine, rating, price, dista
   // eslint-disable-next-line no-console
   console.log("[Frontend/api.js] Fetching /api/restaurants with params:", Object.fromEntries(params.entries()));
 
+  // Extra debug: Also log raw query string for test purposes
+  // eslint-disable-next-line no-console
+  console.log("[Frontend/api.js] QueryString for backend:", params.toString());
+
   const resp = await fetch(`/api/restaurants?${params.toString()}`, {
     method: "GET",
     headers: {
@@ -42,6 +46,8 @@ export async function fetchRestaurants({ location, cuisine, rating, price, dista
     console.log(`[Frontend/api.js] Received ${Array.isArray(json.businesses) ? json.businesses.length : 0} businesses`);
     if (Array.isArray(json.businesses) && json.businesses.length > 0) {
       console.log("[Frontend/api.js] Sample business:", json.businesses[0]?.name, json.businesses[0]?.id);
+      // Extra debug: Log entire first business object for diagnosis
+      console.log("[Frontend/api.js] Full sample business:", json.businesses[0]);
     }
   }
   return json;

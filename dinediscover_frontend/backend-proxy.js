@@ -83,6 +83,8 @@ app.get("/api/restaurants", async (req, res) => {
     if (businesses.length) {
       // Display first restaurant name and id for sampling
       console.log("[Proxy] Sample business:", businesses[0]?.name, businesses[0]?.id);
+      // Extra debug: Full dump of sample business
+      console.log("[Proxy] Full sample business object:", JSON.stringify(businesses[0], null, 2));
     }
 
     res.json({ businesses });
