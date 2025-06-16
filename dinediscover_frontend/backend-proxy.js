@@ -9,7 +9,10 @@ const app = express();
 const YELP_API_KEY = process.env.YELP_API_KEY || ""; // Set via environment variable
 const YELP_API_URL = "https://api.yelp.com/v3/businesses/search";
 
-// Convert query parameters appropriately (miles to meters, etc)
+/**
+ * Convert query parameters appropriately (miles to meters, etc)
+ * Adds debug logging for diagnosis
+ */
 function buildYelpQuery(params) {
   const out = {};
   // Always need 'location'
@@ -35,20 +38,34 @@ function buildYelpQuery(params) {
 
 // PUBLIC_INTERFACE
 app.get("/api/restaurants", async (req, res) => {
+  // DEBUG: Log incoming params
+  // eslint-disable-next-line no-console
+  console.log("[Proxy] Received GET /api/restaurants with query:", req.query);
+
   if (!YELP_API_KEY) {
     res.status(500).json({ error: "Yelp API key not configured." });
     return;
   }
+
   const params = buildYelpQuery(req.query);
+  // DEBUG: Log mapped Yelp query params
+  // eslint-disable-next-line no-console
+  console.log("[Proxy] Mapped Yelp query params:", params);
 
   try {
     const url = new URL(YELP_API_URL);
     Object.entries(params).forEach(([k, v]) => v !== undefined && url.searchParams.append(k, v));
+    // DEBUG: Log Yelp API URL
+    // eslint-disable-next-line no-console
+    console.log("[Proxy] Yelp API URL:", url.toString());
+
     const yelpResp = await fetch(url.toString(), {
       headers: { Authorization: `Bearer ${YELP_API_KEY}` }
     });
     if (!yelpResp.ok) {
       const err = await yelpResp.text();
+      // eslint-disable-next-line no-console
+      console.error("[Proxy] Yelp API error: ", yelpResp.status, err);
       return res.status(yelpResp.status).json({ error: err });
     }
     const body = await yelpResp.json();
@@ -60,8 +77,18 @@ app.get("/api/restaurants", async (req, res) => {
       businesses = businesses.filter(b => b.rating >= minRating);
     }
 
+    // DEBUG: Output number of businesses and sample
+    // eslint-disable-next-line no-console
+    console.log(`[Proxy] Yelp returned ${Array.isArray(businesses) ? businesses.length : 0} businesses`);
+    if (businesses.length) {
+      // Display first restaurant name and id for sampling
+      console.log("[Proxy] Sample business:", businesses[0]?.name, businesses[0]?.id);
+    }
+
     res.json({ businesses });
   } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error("[Proxy] Handler threw error:", err);
     res.status(500).json({ error: err.message || "Request failed" });
   }
 });

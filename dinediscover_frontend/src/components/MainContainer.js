@@ -72,7 +72,19 @@ export default function MainContainer() {
         distance
       });
 
+      // DEBUG: Output full API response to browser console
+      // eslint-disable-next-line no-console
+      console.log("[MainContainer] fetchRestaurants() raw response:", resp);
+
       const results = Array.isArray(resp.businesses) ? resp.businesses : [];
+
+      // DEBUG: Output how many businesses after any (client side) filtering
+      // eslint-disable-next-line no-console
+      console.log(`[MainContainer] Businesses after frontend parsing: ${results.length}`);
+      if (results.length) {
+        // Print sample business for confirmation
+        console.log("[MainContainer] Sample business:", results[0]);
+      }
       if (!results.length) {
         setRestaurants([]);
         setPending(false);
@@ -83,6 +95,8 @@ export default function MainContainer() {
       setPending(false);
 
     } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error("[MainContainer] Error during fetchRestaurants:", err);
       setError(err.message || "Failed to load restaurant data.");
       setPending(false);
     }
