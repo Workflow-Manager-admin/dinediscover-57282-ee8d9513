@@ -258,7 +258,294 @@ const restaurantsData = [
       { user: "Becky R.", text: "Good for business meetings or happy hour! Try the fish and chips." },
       { user: "Steven M.", text: "Modern comfort food in a lively setting." }
     ]
-  }
+  },
+  // ====== NEW DIVERSE CHICAGO RESTAURANTS FOR SUGGESTION VARIETY ======
+  {
+    name: "The Purple Pig",
+    address: "444 N Michigan Ave, Chicago, IL 60611",
+    cuisine: "Mediterranean",
+    price: "$$$",
+    rating: 4.4,
+    distance: 0.7,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/rdDS2oqhwRzyy72-Dmqn3g/o.jpg",
+    review_count: 8321,
+    url: "https://www.yelp.com/biz/the-purple-pig-chicago",
+    categories: [{ alias: "mediterranean", title: "Mediterranean" }, { alias: "tapas", title: "Tapas/Small Plates" }],
+    location: {
+      display_address: ["444 N Michigan Ave", "Chicago, IL 60611"]
+    },
+    comments: [
+      { user: "Alex M.", text: "The bone marrow is a must, and I can't get enough of the sharable plates." },
+      { user: "Sydnee P.", text: "Perfect for adventurous eaters and wine lovers alike." }
+    ]
+  },
+  {
+    name: "Giordano's",
+    address: "223 W Jackson Blvd, Chicago, IL 60606",
+    cuisine: "Italian",
+    price: "$$",
+    rating: 4.2,
+    distance: 1.5,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/JuQ-2nULDiaTWCptlbgwmA/o.jpg",
+    review_count: 6209,
+    url: "https://www.yelp.com/biz/giordanos-chicago-6",
+    categories: [{ alias: "pizza", title: "Pizza" }, { alias: "italian", title: "Italian" }],
+    location: {
+      display_address: ["223 W Jackson Blvd", "Chicago, IL 60606"]
+    },
+    comments: [
+      { user: "Drew T.", text: "Iconic deep dish—bring your appetite!" },
+      { user: "Claire R.", text: "Wait can be long, but the stuffed pizza is worth it." }
+    ]
+  },
+  {
+    name: "Portillo's Hot Dogs",
+    address: "100 W Ontario St, Chicago, IL 60654",
+    cuisine: "American",
+    price: "$",
+    rating: 4.4,
+    distance: 1.2,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/MxBuq3DwyDL9mlJp6IOf9w/o.jpg",
+    review_count: 8812,
+    url: "https://www.yelp.com/biz/portillos-hot-dogs-chicago-4",
+    categories: [{ alias: "hotdog", title: "Hot Dogs" }, { alias: "fastfood", title: "Fast Food" }],
+    location: {
+      display_address: ["100 W Ontario St", "Chicago, IL 60654"]
+    },
+    comments: [
+      { user: "Kenny D.", text: "The Chicago dog and Italian beef are legendary." },
+      { user: "Linda Z.", text: "Quick, affordable, and so satisfying. Chopped salad is great too!" }
+    ]
+  },
+  {
+    name: "RPM Steak",
+    address: "66 W Kinzie St, Chicago, IL 60654",
+    cuisine: "Steakhouse",
+    price: "$$$$",
+    rating: 4.6,
+    distance: 1.8,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/hqcwSHqa5S2_gpGo5te0qw/o.jpg",
+    review_count: 3142,
+    url: "https://www.yelp.com/biz/rpm-steak-chicago",
+    categories: [{ alias: "steak", title: "Steakhouses" }, { alias: "newamerican", title: "American (New)" }],
+    location: {
+      display_address: ["66 W Kinzie St", "Chicago, IL 60654"]
+    },
+    comments: [
+      { user: "George L.", text: "The dry-aged ribeye is pure heaven. Service is spot on every time." },
+      { user: "Kathy P.", text: "Upscale vibe, perfect for a special occasion or date night." }
+    ]
+  },
+  {
+    name: "Virtue",
+    address: "1462 E 53rd St, Chicago, IL 60615",
+    cuisine: "Southern",
+    price: "$$$",
+    rating: 4.8,
+    distance: 7.1,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/nb85UzME5VnJVqS3drGxPg/o.jpg",
+    review_count: 1520,
+    url: "https://www.yelp.com/biz/virtue-restaurant-chicago",
+    categories: [{ alias: "southern", title: "Southern" }, { alias: "comfortfood", title: "Comfort Food" }],
+    location: {
+      display_address: ["1462 E 53rd St", "Chicago, IL 60615"]
+    },
+    comments: [
+      { user: "Destinee M.", text: "Grit cakes and fried green tomatoes are unforgettable." },
+      { user: "Harold F.", text: "Chef Erick Williams is a soul food genius." }
+    ]
+  },
+  {
+    name: "Le Colonial",
+    address: "57 E Oak St, Chicago, IL 60611",
+    cuisine: "Vietnamese",
+    price: "$$$",
+    rating: 4.5,
+    distance: 2.8,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/0fn5vc0_iZpzmP2bVN9raw/o.jpg",
+    review_count: 2946,
+    url: "https://www.yelp.com/biz/le-colonial-chicago",
+    categories: [{ alias: "vietnamese", title: "Vietnamese" }, { alias: "french", title: "French" }],
+    location: {
+      display_address: ["57 E Oak St", "Chicago, IL 60611"]
+    },
+    comments: [
+      { user: "Linh V.", text: "Elegant setting and incredible shaking beef." },
+      { user: "Fran H.", text: "Romantic atmosphere—best Vietnamese/French fusion in Chicago." }
+    ]
+  },
+  {
+    name: "Sun Wah BBQ",
+    address: "5039 N Broadway St, Chicago, IL 60640",
+    cuisine: "Chinese",
+    price: "$$",
+    rating: 4.7,
+    distance: 7.7,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/Zb6RuMO2EiqgThQ38pFidg/o.jpg",
+    review_count: 3511,
+    url: "https://www.yelp.com/biz/sun-wah-bbq-chicago",
+    categories: [{ alias: "bbq", title: "Barbeque" }, { alias: "chinese", title: "Chinese" }],
+    location: {
+      display_address: ["5039 N Broadway St", "Chicago, IL 60640"]
+    },
+    comments: [
+      { user: "Paul Y.", text: "The Beijing duck feast experience is legendary and fun with friends." },
+      { user: "Frankie Z.", text: "Bring a group and get the duck—the tableside carve is a show!" }
+    ]
+  },
+  {
+    name: "Sushi-San",
+    address: "63 W Grand Ave, Chicago, IL 60654",
+    cuisine: "Japanese",
+    price: "$$$",
+    rating: 4.7,
+    distance: 1.3,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/wX7wUn0TtCSbi8CRGLd_cA/o.jpg",
+    review_count: 2534,
+    url: "https://www.yelp.com/biz/sushi-san-chicago",
+    categories: [{ alias: "japanese", title: "Japanese" }, { alias: "sushi", title: "Sushi Bars" }],
+    location: {
+      display_address: ["63 W Grand Ave", "Chicago, IL 60654"]
+    },
+    comments: [
+      { user: "Aiko T.", text: "Omakase was a highlight—freshest fish! Cool hip-hop energy inside." },
+      { user: "Johnny X.", text: "Hand rolls are legit. The vibe is electric every night." }
+    ]
+  },
+  {
+    name: "Galit",
+    address: "2429 N Lincoln Ave, Chicago, IL 60614",
+    cuisine: "Middle Eastern",
+    price: "$$$$",
+    rating: 4.9,
+    distance: 3.9,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/BULubyDW3qd4WdWrD2m2wQ/o.jpg",
+    review_count: 1102,
+    url: "https://www.yelp.com/biz/galit-chicago",
+    categories: [{ alias: "mideastern", title: "Middle Eastern" }, { alias: "modern_european", title: "Modern European" }],
+    location: {
+      display_address: ["2429 N Lincoln Ave", "Chicago, IL 60614"]
+    },
+    comments: [
+      { user: "Talya A.", text: "Hummus is creamy, pita piping hot, and the spices are perfect." },
+      { user: "David S.", text: "Some of the best modern Middle Eastern cuisine in the Midwest." }
+    ]
+  },
+  {
+    name: "Honey Butter Fried Chicken",
+    address: "3361 N Elston Ave, Chicago, IL 60618",
+    cuisine: "American",
+    price: "$$",
+    rating: 4.6,
+    distance: 5.6,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/TECL6XXb1OA0ubnLsCI0TQ/o.jpg",
+    review_count: 2697,
+    url: "https://www.yelp.com/biz/honey-butter-fried-chicken-chicago",
+    categories: [{ alias: "southern", title: "Southern" }, { alias: "chicken", title: "Chicken Wings" }, { alias: "comfortfood", title: "Comfort Food" }],
+    location: {
+      display_address: ["3361 N Elston Ave", "Chicago, IL 60618"]
+    },
+    comments: [
+      { user: "Jules K.", text: "Crispy juicy fried chicken you dip in honey butter—need I say more?" },
+      { user: "Oscar E.", text: "Cozy, quirky, and family-friendly. Mac and cheese is awesome too." }
+    ]
+  },
+  {
+    name: "The Whale",
+    address: "2427 N Milwaukee Ave, Chicago, IL 60647",
+    cuisine: "American",
+    price: "$$$",
+    rating: 4.3,
+    distance: 4.2,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/KGZ7Vid_8nUZSmP7z8t4Ug/o.jpg",
+    review_count: 911,
+    url: "https://www.yelp.com/biz/the-whale-chicago",
+    categories: [{ alias: "newamerican", title: "American (New)" }, { alias: "cocktailbars", title: "Cocktail Bars" }],
+    location: {
+      display_address: ["2427 N Milwaukee Ave", "Chicago, IL 60647"]
+    },
+    comments: [
+      { user: "Emily S.", text: "Brunch here is a treat, and cocktails are inventive." },
+      { user: "Corey N.", text: "Love the art deco vibe, and the steak & eggs always hits the spot." }
+    ]
+  },
+  {
+    name: "11 City Diner",
+    address: "1112 S Wabash Ave, Chicago, IL 60605",
+    cuisine: "Diner",
+    price: "$$",
+    rating: 4.5,
+    distance: 2.9,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/d1f03nHkN-w3p7E7OJ0pXA/o.jpg",
+    review_count: 1782,
+    url: "https://www.yelp.com/biz/11-city-diner-chicago",
+    categories: [{ alias: "diner", title: "Diners" }, { alias: "breakfast_brunch", title: "Breakfast & Brunch" }],
+    location: {
+      display_address: ["1112 S Wabash Ave", "Chicago, IL 60605"]
+    },
+    comments: [
+      { user: "Marco L.", text: "Old-fashioned soda fountain, huge portions, and friendly staff." },
+      { user: "Danielle E.", text: "Matzo ball soup is excellent and shakes are the best in town." }
+    ]
+  },
+  {
+    name: "Chilam Balam",
+    address: "3023 N Broadway, Chicago, IL 60657",
+    cuisine: "Mexican",
+    price: "$$",
+    rating: 4.7,
+    distance: 5.5,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/v0mC3yHHPlsRUL4c9eA8Hg/o.jpg",
+    review_count: 1432,
+    url: "https://www.yelp.com/biz/chilam-balam-chicago",
+    categories: [{ alias: "mexican", title: "Mexican" }, { alias: "tapas", title: "Tapas/Small Plates" }],
+    location: {
+      display_address: ["3023 N Broadway", "Chicago, IL 60657"]
+    },
+    comments: [
+      { user: "Patricia R.", text: "BYOB rustic gem with creative Mexican small plates—get the guacamole!" },
+      { user: "Josh F.", text: "Loved the tacos and the seasonal ceviche. Always fresh and bold." }
+    ]
+  },
+  {
+    name: "Kasama",
+    address: "1001 N Winchester Ave, Chicago, IL 60622",
+    cuisine: "Filipino",
+    price: "$$$$",
+    rating: 4.9,
+    distance: 2.6,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/AHpgR6bTvKQ7nUizC7bA2w/o.jpg",
+    review_count: 889,
+    url: "https://www.yelp.com/biz/kasama-chicago-2",
+    categories: [{ alias: "filipino", title: "Filipino" }, { alias: "bakeries", title: "Bakeries" }],
+    location: {
+      display_address: ["1001 N Winchester Ave", "Chicago, IL 60622"]
+    },
+    comments: [
+      { user: "Jen B.", text: "Modern Filipino tasting menu. Ube croissant for breakfast is AMAZING." },
+      { user: "Alvin G.", text: "Best baked goods and inventive Filipino fare—truly worth the hype." }
+    ]
+  },
+  {
+    name: "MingHin Cuisine",
+    address: "2168 S Archer Ave, Chicago, IL 60616",
+    cuisine: "Chinese",
+    price: "$$",
+    rating: 4.5,
+    distance: 3.0,
+    image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/YVb5j7D4OfMXAdx8B8uQIw/o.jpg",
+    review_count: 3060,
+    url: "https://www.yelp.com/biz/minghin-cuisine-chicago-3",
+    categories: [{ alias: "dim_sums", title: "Dim Sum" }, { alias: "chinese", title: "Chinese" }],
+    location: {
+      display_address: ["2168 S Archer Ave", "Chicago, IL 60616"]
+    },
+    comments: [
+      { user: "Wen L.", text: "Best dim sum in Chinatown. Try the egg yolk buns and har gow." },
+      { user: "Martha S.", text: "Efficient service and great for family-style dinners." }
+    ]
+  },
+  // Add more entries as needed for even more diversity and sample depth...
 ];
 
 export default restaurantsData;
